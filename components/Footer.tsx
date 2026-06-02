@@ -10,6 +10,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <p className="font-serif text-lg tracking-[0.2em] text-offwhite mb-3">ADVITI</p>
             <p className="text-xs font-sans text-offwhite/50 tracking-wide leading-relaxed mb-4">
+              Talent Advisory and Acquisition Partners.<br />
               Connecting visionary leaders with exceptional enterprises.
             </p>
             <p className="text-[10px] font-sans text-offwhite/30 tracking-wider uppercase">

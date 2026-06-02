@@ -18,7 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Adviti Consulting Private Limited",
+  title: "Adviti Consulting Private Limited | Talent Advisory and Acquisition Partners",
   description:
     "Connecting visionary leaders with exceptional enterprises. Adviti is a boutique talent advisory and executive search firm based in Bangalore.",
 };
