@@ -21,7 +21,7 @@ export default function PrivacyTermsPage() {
         </div>
 
         {/* Section 1 — Privacy Policy */}
-        <Section label="Section 1" title="Privacy Policy">
+        <Section id="privacy" label="Section 1" title="Privacy Policy">
           <p>
             Adviti Consulting Private Limited (&quot;Adviti&quot;, &quot;we&quot;, &quot;our&quot;, &quot;us&quot;) is committed to protecting the privacy of all individuals whose personal data we process, including clients, candidates, and visitors to adviti.in. Our privacy practices are designed in strict alignment with India&apos;s <strong className="text-offwhite/80">Digital Personal Data Protection Act, 2023 (DPDPA)</strong> and associated Rules.
           </p>
@@ -48,7 +48,7 @@ export default function PrivacyTermsPage() {
         </Section>
 
         {/* Section 2 — Engagement Terms */}
-        <Section label="Section 2" title="Engagement Terms">
+        <Section id="terms" label="Section 2" title="Engagement Terms">
           <h3 className="font-serif text-lg text-offwhite mt-2 mb-2">No Fees Charged to Candidates</h3>
           <p>
             Adviti Consulting Private Limited operates exclusively on a client-mandated, employer-paid model. <strong className="text-offwhite/80">No fee of any nature is charged to any candidate</strong> at any stage of the recruitment process. Any solicitation of fees from candidates purportedly on behalf of Adviti should be reported immediately and treated as fraudulent.
@@ -71,8 +71,60 @@ export default function PrivacyTermsPage() {
           </p>
         </Section>
 
+        {/* Section 4 — Website Terms of Use */}
+        <Section id="website-terms" label="Section 4" title="Website Terms of Use">
+          <h3 className="font-serif text-lg text-offwhite mt-2 mb-2">Acceptance of Terms</h3>
+          <p>
+            By accessing and using adviti.in (the &quot;Site&quot;), you agree to be bound by these Website Terms of Use. If you do not agree to these terms, you must discontinue use of the Site immediately. Adviti Consulting Private Limited reserves the right to amend these terms at any time, and continued use of the Site following any such amendment constitutes acceptance of the revised terms.
+          </p>
+          <h3 className="font-serif text-lg text-offwhite mt-6 mb-2">Permitted Use</h3>
+          <p>
+            The Site is provided for the purpose of communicating information about Adviti&apos;s services, facilitating mandate submissions, and publishing editorial content. You agree to use the Site solely for lawful purposes and in a manner that does not infringe the rights of any third party. You must not use the Site to transmit unsolicited commercial communications, to introduce malicious code, or to attempt to gain unauthorised access to any part of the Site or its underlying systems.
+          </p>
+          <h3 className="font-serif text-lg text-offwhite mt-6 mb-2">Intellectual Property</h3>
+          <p>
+            All content on the Site, including but not limited to text, editorial articles, design elements, graphics, and the Adviti name and mark, is the intellectual property of Adviti Consulting Private Limited or its licensors and is protected under applicable Indian and international intellectual property law. No content may be reproduced, redistributed, or used for commercial purposes without the prior written consent of Adviti Consulting Private Limited. Limited reproduction for personal, non-commercial reference is permitted provided the source is clearly attributed.
+          </p>
+          <h3 className="font-serif text-lg text-offwhite mt-6 mb-2">Third-Party Links</h3>
+          <p>
+            The Site may contain links to third-party websites for reference or convenience. Adviti Consulting Private Limited does not endorse, control, or assume responsibility for the content, privacy practices, or accuracy of any third-party website. Access to linked sites is entirely at your own risk.
+          </p>
+          <h3 className="font-serif text-lg text-offwhite mt-6 mb-2">Availability</h3>
+          <p>
+            Adviti Consulting Private Limited makes no warranty that the Site will be available continuously or free from technical errors. We reserve the right to suspend, modify, or discontinue the Site or any part thereof at any time without notice. We shall not be liable for any loss or inconvenience arising from any unavailability of the Site.
+          </p>
+          <h3 className="font-serif text-lg text-offwhite mt-6 mb-2">Governing Law</h3>
+          <p>
+            These Website Terms of Use are governed by the laws of India. Any disputes arising in connection with your use of the Site shall be subject to the exclusive jurisdiction of the courts of Bangalore, Karnataka, India.
+          </p>
+        </Section>
+
+        {/* Section 5 — Disclaimer */}
+        <Section id="disclaimer" label="Section 5" title="Disclaimer">
+          <h3 className="font-serif text-lg text-offwhite mt-2 mb-2">Informational Purpose Only</h3>
+          <p>
+            All content published on adviti.in, including editorial articles, insights, market commentary, and any other written material, is provided for general informational purposes only. Nothing on this Site constitutes professional legal, financial, taxation, investment, or human resources advice, and no content should be relied upon as such. Adviti Consulting Private Limited expressly disclaims any liability arising from any reliance placed on the content of this Site by any visitor or third party.
+          </p>
+          <h3 className="font-serif text-lg text-offwhite mt-6 mb-2">No Professional Relationship</h3>
+          <p>
+            Accessing or reading content on this Site does not create any professional, fiduciary, advisory, or contractual relationship between you and Adviti Consulting Private Limited. A formal engagement relationship is established only upon execution of a written mandate or services agreement, subject to Adviti&apos;s standard terms and conditions.
+          </p>
+          <h3 className="font-serif text-lg text-offwhite mt-6 mb-2">Accuracy of Information</h3>
+          <p>
+            While Adviti Consulting Private Limited takes reasonable care to ensure that the information published on this Site is accurate and current at the time of publication, we make no representations or warranties, express or implied, as to the completeness, accuracy, reliability, or suitability of any information on the Site. Market conditions, regulatory frameworks, and industry dynamics change rapidly; readers should verify all material facts independently before acting on any information contained herein.
+          </p>
+          <h3 className="font-serif text-lg text-offwhite mt-6 mb-2">Editorial Independence</h3>
+          <p>
+            The views expressed in Adviti&apos;s editorial Insights are those of the firm based on its operational experience and market observation. They do not constitute endorsements of any individual, organisation, product, or service. References to specific industries, market trends, or geographic contexts are illustrative and should not be construed as definitive analyses of those markets.
+          </p>
+          <h3 className="font-serif text-lg text-offwhite mt-6 mb-2">Limitation of Liability</h3>
+          <p>
+            To the fullest extent permitted by applicable law, Adviti Consulting Private Limited shall not be liable for any direct, indirect, incidental, special, or consequential loss or damage of any kind arising out of or in connection with the use of, or inability to use, this Site or any content hereon, even if Adviti has been advised of the possibility of such loss or damage.
+          </p>
+        </Section>
+
         {/* Section 3 — Grievance Redressal */}
-        <div className="mt-14">
+        <div id="grievance" className="mt-14">
           <div className="flex items-center gap-4 mb-8">
             <span className="text-xs font-sans tracking-[0.3em] uppercase text-gold">Section 3</span>
             <div className="flex-1 h-px bg-gold/20" />
@@ -119,16 +171,18 @@ export default function PrivacyTermsPage() {
 }
 
 function Section({
+  id,
   label,
   title,
   children,
 }: {
+  id?: string;
   label: string;
   title: string;
   children: React.ReactNode;
 }) {
   return (
-    <div className="mt-14">
+    <div id={id} className="mt-14">
       <div className="flex items-center gap-4 mb-8">
         <span className="text-xs font-sans tracking-[0.3em] uppercase text-gold">{label}</span>
         <div className="flex-1 h-px bg-gold/20" />

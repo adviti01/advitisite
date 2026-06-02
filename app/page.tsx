@@ -9,7 +9,7 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-4xl mx-auto text-center pt-16">
           <p className="text-xs font-sans tracking-[0.3em] uppercase text-gold mb-8">
-            Boutique Talent Advisory &amp; Acquisition
+            Talent Advisory and Acquisition Partners
           </p>
 
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl text-offwhite leading-[1.1] font-bold mb-6">

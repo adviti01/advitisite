@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { posts } from "@/lib/posts";
 
 export const metadata = {
@@ -35,31 +36,38 @@ export default function BlogPage() {
           {posts.map((post) => {
             const tagClass = categoryColors[post.category] ?? "text-gold border-gold/30";
             return (
-              <article
+              <Link
                 key={post.slug}
+                href={`/blog/${post.slug}`}
                 className="bg-charcoal p-8 group hover:bg-black transition-colors duration-300 flex flex-col"
               >
-                <div className="flex items-center gap-3 mb-5">
-                  <span
-                    className={`text-[10px] font-sans tracking-widest uppercase border px-2 py-0.5 ${tagClass}`}
-                  >
-                    {post.category}
-                  </span>
-                  <span className="text-[10px] font-sans text-offwhite/30 tracking-wide">
-                    {post.readTime}
-                  </span>
-                </div>
+                <article>
+                  <div className="flex items-center gap-3 mb-5">
+                    <span
+                      className={`text-[10px] font-sans tracking-widest uppercase border px-2 py-0.5 ${tagClass}`}
+                    >
+                      {post.category}
+                    </span>
+                    <span className="text-[10px] font-sans text-offwhite/30 tracking-wide">
+                      {post.readTime}
+                    </span>
+                  </div>
 
-                <h2 className="font-serif text-lg text-offwhite leading-snug mb-4 group-hover:text-gold transition-colors duration-200 flex-1">
-                  {post.title}
-                </h2>
+                  <h2 className="font-serif text-lg text-offwhite leading-snug mb-4 group-hover:text-gold transition-colors duration-200">
+                    {post.title}
+                  </h2>
 
-                <div className="w-6 h-px bg-gold/30 mb-4" />
+                  <div className="w-6 h-px bg-gold/30 mb-4" />
 
-                <p className="font-sans text-xs text-offwhite/45 leading-relaxed">
-                  {post.excerpt}
-                </p>
-              </article>
+                  <p className="font-sans text-xs text-offwhite/45 leading-relaxed">
+                    {post.excerpt}
+                  </p>
+
+                  <p className="mt-5 text-[10px] font-sans tracking-widest uppercase text-gold/60 group-hover:text-gold transition-colors duration-200">
+                    Read article
+                  </p>
+                </article>
+              </Link>
             );
           })}
         </div>
