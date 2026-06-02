@@ -1,12 +1,9 @@
-name: Build and Deploy to Hostinger branch
+name: Build and Deploy to Hostinger
 
 on:
   push:
     branches:
       - main
-
-permissions:
-  contents: write
 
 jobs:
   deploy:
@@ -28,12 +25,12 @@ jobs:
       - name: Build static export
         run: npm run build
 
-      - name: Push out/ to hostinger branch
-        run: |
-          cd out
-          git init
-          git config user.name "Sri"
-          git config user.email "sri@adviti.in"
-          git add -A
-          git commit -m "Deploy: $(date '+%Y-%m-%d %H:%M:%S')"
-          git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:hostinger
+      - name: Deploy to Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/
+          server-dir: /public_html/
+          dangerous-clean-slate: false
