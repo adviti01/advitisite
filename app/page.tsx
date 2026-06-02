@@ -8,10 +8,6 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-charcoal opacity-90" />
 
         <div className="relative z-10 max-w-4xl mx-auto text-center pt-16">
-          <p className="text-xs font-sans tracking-[0.3em] uppercase text-gold mb-8">
-            Boutique Talent Advisory &amp; Acquisition
-          </p>
-
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl text-offwhite leading-[1.1] font-bold mb-6">
             Connecting Visionary Leaders with Exceptional Enterprises.
           </h1>
