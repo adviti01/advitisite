@@ -25,23 +25,47 @@ jobs:
       - name: Build static export
         run: npm run build
 
-      - name: Install lftp
-        run: sudo apt-get install -y lftp
-
       - name: Deploy to Hostinger via FTP
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          lftp -e "
-            set ftp:passive-mode true;
-            set ftp:ssl-allow false;
-            set net:timeout 120;
-            set net:max-retries 5;
-            set net:idle 60;
-            set ftp:auto-sync-mode true;
-            open ftp://$FTP_USERNAME:$FTP_PASSWORD@$FTP_SERVER;
-            mirror -R --no-perms --ignore-time --parallel=1 ./out/ /public_html/;
-            quit
-          "
+          python3 - <<'EOF'
+          import ftplib, os, sys
+          from pathlib import Path
+
+          server   = os.environ["FTP_SERVER"]
+          username = os.environ["FTP_USERNAME"]
+          password = os.environ["FTP_PASSWORD"]
+          local    = Path("./out")
+          remote   = "/public_html"
+
+          def ensure_dir(ftp, path):
+              try: ftp.mkd(path)
+              except: pass
+
+          def upload(ftp, local_path, remote_path):
+              ensure_dir(ftp, remote_path)
+              for item in sorted(local_path.iterdir()):
+                  rp = f"{remote_path}/{item.name}"
+                  if item.is_dir():
+                      upload(ftp, item, rp)
+                  else:
+                      with open(item, "rb") as f:
+                          ftp.storbinary(f"STOR {rp}", f)
+                      print(f"  uploaded: {rp}")
+
+          try:
+              ftp = ftplib.FTP()
+              ftp.connect(server, 21, timeout=60)
+              ftp.login(username, password)
+              ftp.set_pasv(True)
+              print(f"Connected to {server}")
+              upload(ftp, local, remote)
+              ftp.quit()
+              print("Deploy complete.")
+          except Exception as e:
+              print(f"FTP error: {e}", file=sys.stderr)
+              sys.exit(1)
+          EOF
